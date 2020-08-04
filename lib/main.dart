@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbase/app/sign_in/sign_in_page.dart';
+import 'package:flutterbase/app/landing_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: SignInPage(),
+      home: LandingPage(),
     );
   }
 }
