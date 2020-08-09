@@ -14,7 +14,7 @@ class SignInPage extends StatelessWidget {
       onSignIn(authResult.user);
     } catch (e) {
       print(e.toString());
-    }
+    } 
   }
 
   void _signInWithEmail(BuildContext context) {
