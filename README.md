@@ -1,4 +1,4 @@
-# flutterbase
+# FlutterBase
 
 Flutter and Firebase authentication.
 
