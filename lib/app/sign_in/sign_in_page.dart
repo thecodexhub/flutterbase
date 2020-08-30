@@ -16,6 +16,14 @@ class SignInPage extends StatelessWidget {
     } 
   }
 
+  Future<void> _signInWithGoogle() async {
+    try {
+      await auth.signInWithGoogle();
+    } catch (e) {
+      print(e.toString());
+    } 
+  }
+
   void _signInWithEmail(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -68,7 +76,7 @@ class SignInPage extends StatelessWidget {
             text: 'Sign in with Google',
             textColor: Colors.black87,
             color: Colors.white,
-            onPressed: () {},
+            onPressed: _signInWithGoogle,
           ),
           SizedBox(height: 8.0),
           SignInButton(
