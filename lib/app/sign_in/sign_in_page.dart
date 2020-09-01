@@ -13,7 +13,7 @@ class SignInPage extends StatelessWidget {
       await auth.signInAnonymously();
     } catch (e) {
       print(e.toString());
-    } 
+    }
   }
 
   Future<void> _signInWithGoogle() async {
@@ -21,14 +21,14 @@ class SignInPage extends StatelessWidget {
       await auth.signInWithGoogle();
     } catch (e) {
       print(e.toString());
-    } 
+    }
   }
 
   void _signInWithEmail(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
         fullscreenDialog: true,
-        builder: (context) => EmailSignInPage(),
+        builder: (context) => EmailSignInPage(auth: auth),
       ),
     );
   }
