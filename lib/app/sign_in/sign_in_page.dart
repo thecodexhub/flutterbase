@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbase/app/services/auth.dart';
 import 'package:flutterbase/app/sign_in/email_sign_in_page.dart';
+import 'package:flutterbase/app/sign_in/phone_sign_in_page.dart';
 import 'package:flutterbase/app/sign_in/sign_in_button.dart';
 import 'package:flutterbase/app/sign_in/social_sign_in_button.dart';
 
@@ -29,6 +30,15 @@ class SignInPage extends StatelessWidget {
       MaterialPageRoute(
         fullscreenDialog: true,
         builder: (context) => EmailSignInPage(auth: auth),
+      ),
+    );
+  }
+
+  void _signInWithPhone(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        fullscreenDialog: true,
+        builder: (context) => PhoneSignInPage(auth: auth),
       ),
     );
   }
@@ -85,6 +95,14 @@ class SignInPage extends StatelessWidget {
             textColor: Colors.white,
             color: Colors.red[700],
             onPressed: () => _signInWithEmail(context),
+          ),
+          SizedBox(height: 8.0),
+          SignInButton(
+            icon: Icons.phone,
+            text: 'Sign in with phone number',
+            textColor: Colors.black87,
+            color: Colors.green[400],
+            onPressed: () => _signInWithPhone(context),
           ),
           SizedBox(height: 8.0),
           Text(

@@ -14,6 +14,9 @@ abstract class AuthBase {
   Future<User> signInAnonymously();
   Future<User> signInWithEmailAndPassword(String email, String password);
   Future<User> createUserWithEmailAndPassword(String email, String password);
+  Future<void> verifyPhoneNumber(String phone,
+      {Function(String) getVerificationId});
+  Future<User> signInWithPhoneAndOTP(String verificationId, String smsCode);
   Future<User> signInWithGoogle();
   Future<void> signOut();
 }
@@ -53,9 +56,48 @@ class Auth implements AuthBase {
   }
 
   @override
-  Future<User> createUserWithEmailAndPassword(String email, String password) async {
+  Future<User> createUserWithEmailAndPassword(
+      String email, String password) async {
     final authResult = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
+    return _userFromFirebase(authResult.user);
+  }
+
+  @override
+  Future<void> verifyPhoneNumber(String phone,
+      {Function(String) getVerificationId}) async {
+    await _firebaseAuth.verifyPhoneNumber(
+      phoneNumber: phone,
+      timeout: Duration(seconds: 60),
+      verificationCompleted: (AuthCredential authCredential) {
+        _firebaseAuth
+            .signInWithCredential(authCredential)
+            .then((AuthResult authResult) {
+          print('Sign in successful');
+        }).catchError((e) => print(e.toString()));
+      },
+      verificationFailed: (AuthException authException) {
+        print(authException.message);
+      },
+      codeSent: (String verificationId, [int code]) {
+        getVerificationId(verificationId);
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        print(verificationId);
+        print("Timout");
+      },
+    );
+  }
+
+  @override
+  Future<User> signInWithPhoneAndOTP(
+      String verificationId, String smsCode) async {
+    final authResult = await _firebaseAuth.signInWithCredential(
+      PhoneAuthProvider.getCredential(
+        verificationId: verificationId,
+        smsCode: smsCode,
+      ),
+    );
     return _userFromFirebase(authResult.user);
   }
 
