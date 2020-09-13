@@ -4,12 +4,11 @@ import 'package:flutterbase/app/sign_in/email_sign_in_page.dart';
 import 'package:flutterbase/app/sign_in/phone_sign_in_page.dart';
 import 'package:flutterbase/app/sign_in/sign_in_button.dart';
 import 'package:flutterbase/app/sign_in/social_sign_in_button.dart';
+import 'package:provider/provider.dart';
 
 class SignInPage extends StatelessWidget {
-  SignInPage({@required this.auth});
-  final AuthBase auth;
-
-  Future<void> _signInAnonymously() async {
+  Future<void> _signInAnonymously(BuildContext context) async {
+    final auth = Provider.of<AuthBase>(context);
     try {
       await auth.signInAnonymously();
     } catch (e) {
@@ -17,7 +16,8 @@ class SignInPage extends StatelessWidget {
     }
   }
 
-  Future<void> _signInWithGoogle() async {
+  Future<void> _signInWithGoogle(BuildContext context) async {
+    final auth = Provider.of<AuthBase>(context);
     try {
       await auth.signInWithGoogle();
     } catch (e) {
@@ -29,7 +29,7 @@ class SignInPage extends StatelessWidget {
     Navigator.of(context).push(
       MaterialPageRoute(
         fullscreenDialog: true,
-        builder: (context) => EmailSignInPage(auth: auth),
+        builder: (context) => EmailSignInPage(),
       ),
     );
   }
@@ -38,7 +38,7 @@ class SignInPage extends StatelessWidget {
     Navigator.of(context).push(
       MaterialPageRoute(
         fullscreenDialog: true,
-        builder: (context) => PhoneSignInPage(auth: auth),
+        builder: (context) => PhoneSignInPage(),
       ),
     );
   }
@@ -86,7 +86,7 @@ class SignInPage extends StatelessWidget {
             text: 'Sign in with Google',
             textColor: Colors.black87,
             color: Colors.white,
-            onPressed: _signInWithGoogle,
+            onPressed: () => _signInWithGoogle(context),
           ),
           SizedBox(height: 8.0),
           SignInButton(
@@ -118,7 +118,7 @@ class SignInPage extends StatelessWidget {
             text: 'Sign in anonymously',
             textColor: Colors.black,
             color: Colors.lime[300],
-            onPressed: _signInAnonymously,
+            onPressed: () => _signInAnonymously(context),
           ),
         ],
       ),
