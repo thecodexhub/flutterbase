@@ -1,6 +1,6 @@
 # FlutterBase
 
-Flutter and Firebase Authentication.
+Flutter and Firebase Authentication
 
 ## Getting Started
 
