@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbase/app/services/auth.dart';
 import 'package:flutterbase/common_widgets/form_submit_button.dart';
+import 'package:provider/provider.dart';
 
 class PhoneSignInPage extends StatefulWidget {
-  PhoneSignInPage({@required this.auth});
-  final AuthBase auth;
   @override
   _PhoneSignInPageState createState() => _PhoneSignInPageState();
 }
@@ -14,7 +13,8 @@ class _PhoneSignInPageState extends State<PhoneSignInPage> {
   TextEditingController _otpController = TextEditingController();
 
   void _submit() async {
-    await widget.auth.verifyPhoneNumber(
+    final auth = Provider.of<AuthBase>(context);
+    await auth.verifyPhoneNumber(
       _phoneController.text.trim(),
       getVerificationId: (String verificationId) {
         _buildDialogForOTP(verificationId);
@@ -62,9 +62,11 @@ class _PhoneSignInPageState extends State<PhoneSignInPage> {
               ),
               FlatButton(
                 onPressed: () async {
-                  await widget.auth.signInWithPhoneAndOTP(
+                  final auth = Provider.of<AuthBase>(context);
+                  await auth.signInWithPhoneAndOTP(
                       verificationId, _otpController.text.trim());
                   Navigator.of(context).pop();
+
                   Navigator.of(context).pop();
                 },
                 child: Text('SUBMIT'),

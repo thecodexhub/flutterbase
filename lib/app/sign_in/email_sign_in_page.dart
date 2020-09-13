@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbase/app/services/auth.dart';
 import 'package:flutterbase/app/sign_in/email_sign_in_form.dart';
 
 class EmailSignInPage extends StatelessWidget {
-  EmailSignInPage({@required this.auth});
-  final AuthBase auth;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +30,7 @@ class EmailSignInPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(16.0),
               child: Card(
-                child: EmailSignInForm(auth: auth),
+                child: EmailSignInForm(),
               ),
             ),
           ],

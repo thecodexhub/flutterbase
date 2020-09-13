@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbase/app/services/auth.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({@required this.auth});
-  final AuthBase auth;
-
-  Future<void> _signOut() async {
+  Future<void> _signOut(BuildContext context) async {
+    final auth = Provider.of<AuthBase>(context);
     try {
       await auth.signOut();
     } catch (e) {
@@ -32,7 +31,7 @@ class HomePage extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          onPressed: _signOut,
+          onPressed: () => _signOut(context),
         ),
       ),
     );
