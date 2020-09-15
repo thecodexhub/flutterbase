@@ -10,16 +10,16 @@ This branch contains the UI part of our Flutter FIrebase authentication applicat
 
 <div style="text-align: center"><table><tr>
 <td style="text-align: center">
- <img src="media/sign_in_page.png" width="250" />
+ <img src="media/sign_in_page.png" width="300" />
  </td>
 <td style="text-align: center">
- <img src="media/email_sign_in_page.png" width="250"/>
+ <img src="media/email_sign_in_page.png" width="300"/>
  </tr></table>
  </div>
  
  ## Connect Flutter with Firebase
  
- Steps to connect [Firebase](https://console.firebase.google.com/):
+ Steps to connect with [Firebase](https://console.firebase.google.com/):
  
 - Create a new project with the Firebase console.
 - Add Android apps in the Firebase project settings.
