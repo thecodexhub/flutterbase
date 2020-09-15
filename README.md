@@ -13,7 +13,7 @@ This branch contains the UI part of our Flutter FIrebase authentication applicat
  <img src="media/sign_in_page.png" width="300" />
  </td>
 <td style="text-align: center">
- <img src="media/email_sign_in_page.png" width="300"/>
+ <img src="media/email_sign_in_page.png" width="294"/>
  </tr></table>
  </div>
  
