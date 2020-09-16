@@ -4,7 +4,7 @@ Flutter and Firebase authentication flow.
 
 ## FlutterBase_UI
 
-This branch contains the UI part of our Flutter FIrebase authentication application. And this UI is configured with [Firebase](https://console.firebase.google.com/).
+This branch contains the UI part of our Flutter FIrebase authentication application. And this UI will be configured with [Firebase](https://console.firebase.google.com/) and used for the entire project.
 
 ## Preview
 
@@ -17,14 +17,4 @@ This branch contains the UI part of our Flutter FIrebase authentication applicat
  </tr></table>
  </div>
  
- ## Connect Flutter with Firebase
- 
- Steps to connect with [Firebase](https://console.firebase.google.com/):
- 
-- Create a new project with the Firebase console.
-- Add Android apps in the Firebase project settings.
-- Use the package (for this project it is `com.example.flutterbase`) and also a SHA-1 certificate fingerprint is also needed for Google sign-in.
-- then, download and copy `google-services.json` into `android/app`
-- and now a little more configuration is needed, for this [see documentation](https://firebase.google.com/docs/android/setup#add-config-file)
-
-_Note: To know how to connect a Flutter project with the backend service Firebase in details, click [here](https://www.instagram.com/p/CDTe8gEga4j/?utm_source=ig_web_copy_link)  😉_
+ _NOTE: To learn how to connect flutter with firebase, click [here](https://github.com/cdx-studio/flutterbase/tree/firebase_config)_
