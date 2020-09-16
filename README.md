@@ -17,4 +17,4 @@ This branch contains the UI part of our Flutter FIrebase authentication applicat
  </tr></table>
  </div>
  
- _NOTE: To learn how to connect flutter with firebase, click [here](https://github.com/cdx-studio/flutterbase/tree/firebase_config)_
+ _NOTE: To learn how to connect flutter with firebase, click [here](https://github.com/thecodexhub/flutterbase/tree/firebase_config)_
