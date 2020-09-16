@@ -4,7 +4,7 @@ Flutter and Firebase authentication flow.
 
 ## sign_in_anonymously
 
-In this branch Anonymous Sign in functionality is added to the firebase configured UI [part](https://github.com/cdx-studio/flutterbase/tree/flutterbase_ui).
+In this branch Anonymous Sign in functionality is added to the firebase configured UI [part](https://github.com/thecodexhub/flutterbase/tree/firebase_config).
 
 ### Supported sign-in methods
 
