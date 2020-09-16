@@ -4,7 +4,7 @@ Flutter and Firebase authentication flow.
 
 ## Firebase_config
 
-This branch contains the [UI part](https://github.com/cdx-studio/flutterbase/tree/flutterbase_ui) configured with [Firebase](https://console.firebase.google.com/).
+This branch contains the [UI part](https://github.com/thecodexhub/flutterbase/tree/flutterbase_ui) configured with [Firebase](https://console.firebase.google.com/).
 
 ## Connect Flutter with Firebase
  
