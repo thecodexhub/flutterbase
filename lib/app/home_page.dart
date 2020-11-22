@@ -1,6 +1,9 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutterbase/app/services/auth.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class HomePage extends StatelessWidget {
   Future<void> _signOut(BuildContext context) async {
@@ -17,23 +20,21 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Page'),
-      ),
-      body: Center(
-        child: FlatButton(
-          color: Theme.of(context).primaryColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4.0),
-          ),
-          child: Text(
-            'Log out',
-            style: TextStyle(
-              fontSize: 18.0,
-              color: Colors.white,
+        actions: [
+          FlatButton(
+            child: Text(
+              'Log out',
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.white,
+              ),
             ),
+            onPressed: () => _signOut(context),
           ),
-          onPressed: () => _signOut(context),
-        ),
+        ],
       ),
+      body: Container(),
     );
   }
 }
+
